@@ -179,7 +179,7 @@
   const sessionUserIsPlayingKey = 'SESSION_USER_IS_PLAYING';
   
   //inisialisasi key untuk local storage
-  const localTotalVictoryKey = 'LOCAL_TOTAL_VICTORIES_PLAYED';
+  const localTotalVictoryFieldKey = 'LOCAL_TOTAL_VICTORY';
   const localMaximumAttemptsKey = 'LOCAL_MAXIMUM_ATTEMPTS';
 
 
@@ -197,8 +197,8 @@
       }
 
       // Local storage get and set items 
-      if(localStorage.getItem(localTotalVictoryField)===null){
-        localStorage.setItem(localTotalVictoryField,0);
+      if(localStorage.getItem(localTotalVictoryFieldKey)===null){
+        localStorage.setItem(localTotalVictoryFieldKey,0);
       }
       if(localStorage.getItem(localMaximumAttemptsKey)===null){
         localStorage.setItem(localMaximumAttemptsKey,0);
@@ -211,10 +211,11 @@
   });
 
   // Set inner text from session and local storage
-  sessionUserAttemptsField.innerText = sessionStorage.getItem(sessioNUsersAttemptsKey);
-  localTotalVictoryField.innerText = localSotrage.getItem(localTotalVictoryKey);
+  sessionUserAttemptsField.innerText = sessionStorage.getItem(sessionUserAttemptsKey);
+  localTotalVictoryField.innerText = localStorage.getItem(localTotalVictoryFieldKey);
   localMaximumAttemptField.innerText = localStorage.getItem(localMaximumAttemptsKey);
-  // Test
+
+
 </script>
 </body>
 </html>
