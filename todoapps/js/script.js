@@ -195,3 +195,5 @@ document.addEventListener("DOMContentLoaded", function(){
         loadFromStrorage();
     }
 });
+
+console.log(todos);
