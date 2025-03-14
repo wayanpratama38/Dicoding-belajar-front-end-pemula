@@ -195,7 +195,3 @@ document.addEventListener("DOMContentLoaded", function(){
         loadFromStrorage();
     }
 });
-
-localStorage.setItem('newItem', true);
-console.log(typeof localStorage.getItem('newItem'));
-
