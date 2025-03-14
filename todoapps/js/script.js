@@ -1,5 +1,8 @@
 const todos = [];
 const RENDER_EVENT = "render-todo";
+const SAVED_EVENT = 'data-saved';
+const STORAGE_KEY = 'TODOS_APPS';
+
 
 function generateID(){
     return +new Date();
@@ -41,6 +44,7 @@ function addTodo(){
             }
         }
     });
+    saveData();
 };
 
 
@@ -75,7 +79,8 @@ function addTaskToCompleted(todoId){
 
     todoTarget.isCompleted = true;
     document.dispatchEvent(new Event(RENDER_EVENT));
-    
+    saveData();
+
 }
 
 // Removing Task From Completed
@@ -86,6 +91,8 @@ function removeTaskFromCompleted(todoId){
 
     todos.slice(todoTarget,1);
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
+
 }
 
 // Undo Task From Completed
@@ -96,6 +103,7 @@ function undoTaskFromCompleted(todoId){
 
     todoTarget.isCompleted = false;
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 // Creating To Do List
@@ -144,6 +152,24 @@ function makeToDo(todoObject){
     return container;
 }
 
+// Saving Data into Local Storage
+function saveData(){
+    if(isStorageExist()){
+        const parsed = JSON.stringify(todos);
+        localStorage.setItem(STORAGE_KEY,parsed);
+        document.dispatchEvent(new Event(SAVED_EVENT));
+    }
+}
+
+// Checking Storage Existence 
+function isStorageExist(){
+    if(typeof (Storage)!=='undefined'){
+        return true;
+    }else{
+        alert("Browser doesn't support local storage");
+        return false;
+    }
+}
 document.addEventListener("DOMContentLoaded", function(){
     const submitForm = document.getElementById("form");
     submitForm.addEventListener("submit",function(event){
@@ -151,3 +177,4 @@ document.addEventListener("DOMContentLoaded", function(){
         addTodo();
     });
 });
+
