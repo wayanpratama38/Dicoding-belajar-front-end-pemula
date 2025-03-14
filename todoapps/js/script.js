@@ -170,11 +170,32 @@ function isStorageExist(){
         return false;
     }
 }
+
+function loadFromStrorage(){
+    const serializedData = localStorage.getItem(STORAGE_KEY);
+    const data = JSON.parse(serializedData);
+
+    if(data!=null){
+        for(const todoItem of data){
+            todos.push(todoItem);
+        }
+    }
+
+
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
 document.addEventListener("DOMContentLoaded", function(){
     const submitForm = document.getElementById("form");
     submitForm.addEventListener("submit",function(event){
         event.preventDefault();
         addTodo();
     });
+
+    if(isStorageExist()){
+        loadFromStrorage();
+    }
 });
+
+localStorage.setItem('newItem', true);
+console.log(typeof localStorage.getItem('newItem'));
 
