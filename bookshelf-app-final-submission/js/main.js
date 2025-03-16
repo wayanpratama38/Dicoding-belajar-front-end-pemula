@@ -53,20 +53,7 @@ function addBook(){
     });
 }
 
-
-{/* <div class="bookList">
-    <div data-bookid="456456456" data-testid="bookItem">
-        <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-        <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
-        <p data-testid="bookItemYear">Tahun: 2030</p>
-        <div class="actionWraper">
-            <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-            <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-            <button data-testid="bookItemEditButton">Edit Buku</button>
-        </div>
-    </div>
-</div> */}
-
+// Create Book Element
 function makeBook(bookObject){
     const bookContainer = document.createElement("div");
     bookContainer.classList.add("bookList");
@@ -91,29 +78,85 @@ function makeBook(bookObject){
     actionWrapper.classList.add("actionWraper");
 
     const isCompleteButton = document.createElement("button");
-    isCompleteButton.innerText = "Selesai dibaca";
     isCompleteButton.setAttribute("data-testid","bookItemIsCompleteButton");
 
     const deleteButton = document.createElement("button");
-    deleteButton.innerText = "Hapus Buku";
+    deleteButton.innerText = "Delete Book";
     deleteButton.setAttribute("data-testid","bookItemDeleteButton");
+    deleteButton.addEventListener("click",function(){
+        deleteBook(bookObject.id);
+    });
 
     const editButton = document.createElement("button");
-    editButton.innerText = "Edit Buku";
+    editButton.innerText = "Edit Book";
     editButton.setAttribute("data-testid","bookItemEditButton");
 
     if(bookObject.isCompleted){
-        actionWrapper.append(deleteButton,editButton);
+        isCompleteButton.innerText = "Undo Book";
+        isCompleteButton.addEventListener("click",function(){
+            undoCompletedBook(bookObject.id);
+        });
+        actionWrapper.append(isCompleteButton,deleteButton,editButton);
     }else{
+        isCompleteButton.innerText = "Finish Book";
+        isCompleteButton.addEventListener("click",function(){
+            addToCompletedBook(bookObject.id);
+        });
         actionWrapper.append(isCompleteButton,deleteButton,editButton);
     }
+
     bookItem.append(bookTitle,bookAuthor,bookYear,actionWrapper);
     bookContainer.append(bookItem);
 
     return bookContainer;
-
 }
 
+// Function to add book to complete list
+function addToCompletedBook(bookID){
+    const bookTarget = findBookID(bookID);
+    if(bookTarget == null) return;
+
+    bookTarget.isCompleted = true;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+// Function to remove book from complete list
+function undoCompletedBook(bookID){
+    const bookTarget = findBookID(bookID);
+    if(bookTarget == null) return;
+
+    bookTarget.isCompleted = false;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+// Function to delete book from any list
+function deleteBook(bookID){
+    const bookIndex = findBookIndex(bookID);
+    if(bookIndex == -1) return;
+
+    book.splice(bookIndex,1);
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+// Find Book using Book ID Attribute
+function findBookID(bookID){
+    for(const bookItem of book){
+        if(bookItem.id === bookID){
+            return bookItem;
+        }
+    }
+    return null;
+}
+
+// Find Book index using book id
+function findBookIndex(bookId){
+    for(const index of book){
+        if(index.id === bookId){
+            return book.indexOf(index);
+        }
+    }
+    return -1;
+}
 
 
 
