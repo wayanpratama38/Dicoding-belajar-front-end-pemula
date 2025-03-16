@@ -1,0 +1,104 @@
+
+section{
+    border: 2px solid #000;
+    background-color: #A27B5C;
+    margin: 10px;
+    color: #DCD7C9;
+}
+
+
+body{
+    margin: 30px;
+    background-color: #2C3930;
+}
+
+/* Form and Book Condition Container */
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+#addBookContainer{
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.formWraper{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.checkboxWraper{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 5px;
+}
+
+.buttonWraper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#bookFormSubmit{
+    width: 95%;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.bookConditionContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.bookConditionContainer>section{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Search and Search Result Container */
+
+.searchBookContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#searchBook{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+#searchBookTitle{
+    width: 100%;
+}
+
+#searchContainer{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+#searchResultContainer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Book List Container */
+.bookList{
+    display: flex;
+    border: 2px solid #000;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: row;
+}
+
