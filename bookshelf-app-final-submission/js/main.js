@@ -159,23 +159,57 @@ function findBookIndex(bookId){
 }
 
 
+// Search Book by title from all list
+function searchBook(bookTitle){
+    const searchResult = [];
+    for(const bookItem of book){
+        if(bookItem.bookTitle.toLowerCase().includes(bookTitle.toLowerCase())){
+            console.log(bookItem);
+            searchResult.push(bookItem);
+        }
+    }
+    return searchResult;
+}
 
+// Show Search Book
+function showSearchBook(searchResult){
+    const unfinishedBookList = document.getElementById("incompleteBookList");
+    const finishedBookList = document.getElementById("completeBookList");
 
+    unfinishedBookList.innerHTML = "";
+    finishedBookList.innerHTML = "";
 
-
-
-
-
-
-
-
-// 
+    for(const bookItem of searchResult){
+        const bookElement = makeBook(bookItem);
+        if(bookItem.isCompleted){
+            finishedBookList.appendChild(bookElement);
+        }else{
+            unfinishedBookList.appendChild(bookElement);
+        }
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function(){
     const submitForm = document.getElementById("bookForm");
+    const searchButton = document.getElementById("searchSubmit");
+    
     submitForm.addEventListener("submit",function(event){
         event.preventDefault();
         addBook();
+    });
+
+    searchButton.addEventListener("click",function(event){
+        event.preventDefault();
+
+        const searchBookTitle = document.getElementById("searchBookTitle").value;
+
+        if (searchBookTitle !== "") {
+            const result = searchBook(searchBookTitle);
+            showSearchBook(result);
+        } else {
+            
+            document.dispatchEvent(new Event(RENDER_EVENT));
+        }
     });
 
     // if(isStorageExist()){

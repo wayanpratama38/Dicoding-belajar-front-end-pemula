@@ -11,9 +11,7 @@
     <header>
       <h1>Bookshelf App</h1>
     </header>
-
     <main>
-
       <div class="searchBookContainer">
         <section id="searchContainer">
           <h2>Cari Buku</h2>
@@ -63,56 +61,15 @@
         <div class="bookConditionContainer">
           <section id="unfinishedBookContainer">
             <h2>Belum selesai dibaca</h2>
-    
-            <div class ="bookContainer" id="incompleteBookList" data-testid="incompleteBookList">
-              <!-- 
-                Ini adalah struktur HTML untuk masing-masing buku.
-                Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
-              -->
-              <div class="bookList">  
-                <div data-bookid="123123123" data-testid="bookItem">
-                  <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
-                  <p data-testid="bookItemAuthor">Penulis: Penulis Buku 1</p>
-                  <p data-testid="bookItemYear">Tahun: 2030</p>
-                  <div class="actionWraper">
-                    <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-                    <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-                    <button data-testid="bookItemEditButton">Edit Buku</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
+            <div class ="bookContainer" id="incompleteBookList" data-testid="incompleteBookList"></div>
           </section>
     
           <section id="finishedBookContainer">
             <h2>Selesai dibaca</h2>
-    
-            <div class ="bookContainer" id="completeBookList" data-testid="completeBookList">
-              <!-- 
-                Ini adalah struktur HTML untuk masing-masing buku.
-                Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
-              -->
-              <div class="bookList">
-                <div data-bookid="456456456" data-testid="bookItem">
-                  <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
-                  <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
-                  <p data-testid="bookItemYear">Tahun: 2030</p>
-                  <div class="actionWraper">
-                    <button data-testid="bookItemIsCompleteButton">Selesai dibaca</button>
-                    <button data-testid="bookItemDeleteButton">Hapus Buku</button>
-                    <button data-testid="bookItemEditButton">Edit Buku</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class ="bookContainer" id="completeBookList" data-testid="completeBookList"></div>
           </section>
         </div>
       </div>
-      
-      
-      
-
     </main>
   </body>
 </html>
