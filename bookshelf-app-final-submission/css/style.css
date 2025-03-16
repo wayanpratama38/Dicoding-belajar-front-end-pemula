@@ -1,21 +1,41 @@
+/* Tag CSS */
+body{
+    background-color: #2C3930;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+header{
+    font-size: x-large;
+    font-weight: bold;
+}
 
 section{
     border: 2px solid #000;
     background-color: #A27B5C;
-    margin: 10px;
+    color: #DCD7C9;
+    border-radius: 5px;
+}
+
+h2,h1{
+    text-align: center;
     color: #DCD7C9;
 }
-
-
-body{
-    margin: 30px;
-    background-color: #2C3930;
-}
-
 /* Form and Book Condition Container */
 .container{
+    width: 100%;
     display: flex;
     flex-direction: row;
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 #addBookContainer{
@@ -36,6 +56,10 @@ body{
     gap: 5px;
 }
 
+.checkboxWraper>label{
+    order:1;
+}
+
 .buttonWraper{
     display: flex;
     flex-direction: row;
@@ -47,6 +71,9 @@ body{
     box-sizing: border-box;
     justify-content: center;
     margin-bottom: 10px;
+    border: 0;
+    box-shadow:0 0 3px 0 #000;
+    border-radius: 5px;
 }
 
 .bookConditionContainer{
@@ -56,9 +83,12 @@ body{
     width: 100%;
 }
 
-.bookConditionContainer>section{
-    width: 100%;
+.bookConditionContainer > section{
+    width: 99.2%;
     box-sizing: border-box;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
 }
 
 .bookContainer{
@@ -71,13 +101,54 @@ body{
     width: fit-content;
     display: flex;
     border: 2px solid #000;
+    background-color: #FAF1E6;
+    border-radius: 5px;
+    color: #000;
     margin: 10px;
     padding: 10px;
     flex-direction: row;
 }
 
-/* Search and Search Result Container */
+.actionWraper{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
+button{
+    padding:10px;
+    border: 0px;
+    color: #DCD7C9;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0 #000;
+}
+
+#completeButton{
+    background-color: #A4B465;
+    
+}
+
+#undoButton{
+    background-color: #F7B32B;
+    
+}
+
+#deleteButton{
+    background-color: #F72A2A;
+    
+}
+
+#editButton{
+    background-color: #2A9BF7;
+}   
+
+
+#bookFormSubmit{
+    background-color: #A4B465;
+    
+}
+/* Search and Search Result Container */
 .searchBookContainer{
     display: flex;
     flex-direction: column;
@@ -86,28 +157,31 @@ body{
 
 #searchBook{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
     gap: 10px;
     margin: 10px;
 }
 
+#searchSubmit{
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 0;
+    box-shadow:0 0 3px 0 #000;
+    border-radius: 5px;
+    background-color: #A4B465;
+}
+
 #searchBookTitle{
     width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 #searchContainer{
     width: 100%;
     box-sizing: border-box;
 }
-
-
-#searchResultContainer {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
-/* Book List Container */
-
-

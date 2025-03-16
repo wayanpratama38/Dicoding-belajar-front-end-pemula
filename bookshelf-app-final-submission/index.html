@@ -14,58 +14,54 @@
     <main>
       <div class="searchBookContainer">
         <section id="searchContainer">
-          <h2>Cari Buku</h2>
+          <h2>Find Book</h2>
           <form id="searchBook" data-testid="searchBookForm">
-            <label for="searchBookTitle">Judul</label>
-            <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+            <label for="searchBookTitle">Title</label>
+            <input id="searchBookTitle" type="text" placeholder="Search..." data-testid="searchBookFormTitleInput" />
             <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
-              Cari
+              Search
             </button>
           </form>
         </section>
       </div>
-
       <div class="container">
         <section id="addBookContainer">
-          <h2>Tambah Buku Baru</h2>
+          <h2 id="formTitle">Add new book</h2>
           <form id="bookForm" data-testid="bookForm">
             <div class="formWraper">
-              <label for="bookFormTitle">Judul</label>
-              <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
+              <label for="bookFormTitle">Title</label>
+              <input id="bookFormTitle" type="text" placeholder="Book Title..." required data-testid="bookFormTitleInput" />
             </div>
             <div class="formWraper">
-              <label for="bookFormAuthor">Penulis</label>
-              <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
+              <label for="bookFormAuthor">Author</label>
+              <input id="bookFormAuthor" type="text" placeholder="Book Author..." required data-testid="bookFormAuthorInput" />
             </div>
             <div class="formWraper">
-              <label for="bookFormYear">Tahun</label>
-              <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" />
+              <label for="bookFormYear">Year</label>
+              <input id="bookFormYear" type="number" placeholder="Year Published..." required data-testid="bookFormYearInput" />
             </div>
             <div class="checkboxWraper">
-              <label for="bookFormIsComplete">Selesai dibaca</label>
               <input
                 id="bookFormIsComplete"
                 type="checkbox"
                 data-testid="bookFormIsCompleteCheckbox"
               />
+              <label for="bookFormIsComplete">Finish read?</label>
             </div>
             <div class="buttonWraper">
               <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
-                Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+                Add Book
               </button>
             </div>
           </form>
         </section>
-
-
         <div class="bookConditionContainer">
           <section id="unfinishedBookContainer">
-            <h2>Belum selesai dibaca</h2>
+            <h2>Unfinished Book List</h2>
             <div class ="bookContainer" id="incompleteBookList" data-testid="incompleteBookList"></div>
           </section>
-    
           <section id="finishedBookContainer">
-            <h2>Selesai dibaca</h2>
+            <h2>Finished Book List</h2>
             <div class ="bookContainer" id="completeBookList" data-testid="completeBookList"></div>
           </section>
         </div>
