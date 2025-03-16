@@ -19,7 +19,7 @@ function generateBookObject(id,title,author,year,isComplete){
         id,
         title,
         author,
-        year,
+        year: parseInt(year),
         isComplete
     };
 };
